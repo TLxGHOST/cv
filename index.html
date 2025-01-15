@@ -1,114 +1,57 @@
-<!DOCTYPE html>
+ 
+ <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANSHU's PERSONAL SITE</title>
+    <title>My Enhanced Website with Three.js</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-
 <body>
-    <style>
-        body {
-            background-image: url('bckgrnd.gif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+    <nav>
+        <div>My Website</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>Welcome to My Website</h1>
+        <p>Explore the magic of 3D and interactive designs</p>
+        <button>Learn More</button>
+    </div>
+
+    <!-- The Three.js scene will be rendered in the background -->
+    <footer>
+        &copy; 2025 My Website | All Rights Reserved
+    </footer>
+
+    <script>
+        // Three.js setup (same as above)
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
         }
-    </style>
-   <center> <table cellspacing="10px">
-        <tr>
-            <td><img src="me.png" alt="ANSHU BHANDARI IMAGE" style="height:190px ;"></td>
-            <td>
-                <H1>ANSHU BHANDARI</H1>
-                <p><em>FOUNDER and developer of the site </em><a href=" parampara.html"><strong>PARAMPAPRA</strong></a>
-                </p>
-                <p>I am a web developer . I love weed specially when it snow.</p><br>
-            </td>
-        </tr>
-    </table>
-</center>
 
-    <hr size="12">
-    <h2>EDUCATION</h2>
-    <ul>
-        <li>I have completed my primary schooling from school in my village.Later on I moved to nearby town for my
-            mid-term schooling from <a href="https://marymataschool.com/"><em>MARY MATA SCHOOL</a></em>. From there
-            i completed my education upto Class 10th. <br> </li>
-        <li>After that i moved to <a href="https://www.allen.ac.in/"> KOTA ALLEN CAREER INSTITUTE</a> to prepare for
-            engineering entrance exam.</li>
-        <li>Due to lockdown i had to move back to my town and completed my higher secondary education.</li>
-        <li>I failed my enginneering exam and landed in KIIT university.</li>
-        <li>And my web development journey started from there</li>
-        <li>I took a course on udemy .</li>
-    </ul>
-    <hr>
-    <h3>Work Experience</h3>
-    <table cellspacing="10px">
-        <thead>
-            <tr>
-                <th>TIME</th>
-                <th>WORK</th>
-            </tr>
-
-        </thead>
-        <tbody>
-            <tr>
-                <td>2010-2013</td>
-                <td>Lead developer at baliya institute of technology</td>
-            </tr>
-            <tr>
-                <td>2010</td>
-                <td>
-                    Reasearcher at MIT
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>SKILLS</h3>
-   <table cellspacing="10px">
-<tr>
-  <td>
-    <table cellspacing="10px">
-        <tr>
-            <td>WEB DEVELOPMENT </td>
-            <td>⭐⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-            <td>Python</td>
-            <td>⭐⭐⭐</td>
-        </tr>
-    
-    </table>
-   
-  </td>
-  <td>
-    <table cellspacing="10px">
-        <tr>
-            <td>JAVA  </td>
-            <td>⭐⭐⭐</td>
-           
-        </tr>
-        <tr>
-            <td>CSS </td>
-            <td>⭐⭐</td>
-           
-
-        </tr>
-    </table>
-   
-
-  </td>
-</tr>
-
-
-   </table>
-    <hr>
-    <a href="./hobbies.html">
-        <h3>HOBBIES</h3>
-    </a>
-    <a href="./contact.html">CONTACTS</a>
+        animate();
+    </script>
 </body>
-
 </html>
